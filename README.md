@@ -7,7 +7,7 @@ PyQuickTest test kit is divided into few categories:
 
 
 ## Decorators
-### is_test
+### @is_test
 *Transform the decorated function into a test function for the framework.*\
 **example:**\
     **def my_function():** | *is not*\
@@ -17,7 +17,7 @@ PyQuickTest test kit is divided into few categories:
     **def my_function():** |  *a*\
         **ok()**           | *test*
 
-### qpt_group
+### @qpt_group
 *Categorize the decorated function as belonging to the given groups and subgroups. Groups and subgroups should be given as arguments.*\
 **example:**\
     **@is_test()**         |     *has*\
@@ -34,7 +34,7 @@ PyQuickTest test kit is divided into few categories:
     **def my_function():**              | *and the subgroup*\
         **ok()**                        |    *"Subgroup"*
 
-### qpt_execnbr
+### @qpt_execnbr
 *Order the decorated test function to be run a given number of times.*\
 **example:**\
     **@is_test()**         |     *runs*\
@@ -46,7 +46,7 @@ PyQuickTest test kit is divided into few categories:
     **def my_function():** |    *times*\
         **ok()**           | *my_function*
 
-### qpt_parametrize
+### @qpt_parametrize
 *Use the given parameters to the test function.*\
 **example:**\
     **@is_test()**            |   *will fail*\
