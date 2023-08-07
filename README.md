@@ -15,7 +15,7 @@ PyQuickTest test kit is divided into few categories:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~\
     **@is_test()**         |  *is*\
     **def my_function():** |  *a*\
-        **ok()**           | *test*\
+        **ok()**           | *test*
 
 ### qpt_group
 *Categorize the decorated function as belonging to the given groups and subgroups. Groups and subgroups should be given as arguments.*\
@@ -32,7 +32,7 @@ PyQuickTest test kit is divided into few categories:
     **@is_test()**                      |  *belong to the*\
     **@qpt_group("Group", "Subgroup")** |   *group "Group"*\
     **def my_function():**              | *and the subgroup*\
-        **ok()**                        |    *"Subgroup"*\
+        **ok()**                        |    *"Subgroup"*
 
 ### qpt_execnbr
 *Order the decorated test function to be run a given number of times.*\
@@ -44,7 +44,7 @@ PyQuickTest test kit is divided into few categories:
     **@is_test()**         |    *runs*\
     **@qpt_execnbr(100)**  |    *100*\
     **def my_function():** |    *times*\
-        **ok()**           | *my_function*\
+        **ok()**           | *my_function*
 
 ### qpt_parametrize
 *Use the given parameters to the test function.*\
@@ -61,7 +61,7 @@ PyQuickTest test kit is divided into few categories:
     **@is_test()**                         | *test with*\
     **@qpt_parametrize(8, 'a', [45.19])**  | *arg1 = 8*\
     **def my_function(arg1, arg2, arg3):** | *arg2 = 'a'*\
-        **ok()**                           | *arg3 = [45.19]*\
+        **ok()**                           | *arg3 = [45.19]*
 
 
 ## Assertion functions                                            
@@ -70,14 +70,14 @@ PyQuickTest test kit is divided into few categories:
 **example:**\
     **@is_test()**            |  *This*\
     **def my_function(arg):** |  *test*\
-        **ok()**              | *passes*\
+        **ok()**              | *passes*
 
 ### ko
 *Unvalidate the current test with an optional error message.*\
 **example:**\
     **@is_test()**                  | *This*\
     **def my_function(arg):**       | *test*\
-        **ko("This test failed!")** | *fail*\
+        **ko("This test failed!")** | *fail*
 
 ### check
 *Unvalidate the current test if the given boolean is False. An optional error message can be provided. If the given boolean is True, do nothing.*\
@@ -86,7 +86,7 @@ PyQuickTest test kit is divided into few categories:
     **def my_function(arg):**                       | *generated number*\
         **a = gen_int()**                           | *a is lower than*\
         **check(a > 0, "a isn't greater than 10")** |   *10, the tests*\
-        **ok()**                                    |     *will fail.*\
+        **ok()**                                    |     *will fail.*
 
 ### ensure
 *Validate or unvalidate the current test depending on the given boolean. An optional error message can be provided.*\
@@ -94,48 +94,48 @@ PyQuickTest test kit is divided into few categories:
     **@is_test()**                                   |  *if the generated*\
     **def my_function(arg):**                        | *number a is lower*\
         **a = gen_int()**                            | *than 10, the tests*\
-        **ensure(a > 0, "a isn't greater than 10")** |      *will fail*\
+        **ensure(a > 0, "a isn't greater than 10")** |      *will fail*
 
 
 ## Generator functions                                               
 ### gen_none
-*Generate None.*\
+*Generate None.*
 ### gen_bool
-*Generate a random boolean.*\
+*Generate a random boolean.*
 ### gen_int
-*Generate a random integer. Min and max can be provided.*\
+*Generate a random integer. Min and max can be provided.*
 ### gen_signed_int
-*Generate a random signed integer. Min / max can be given.*\
+*Generate a random signed integer. Min / max can be given.*
 ### gen_float
-*Generate a random float.*\
+*Generate a random float.*
 ### gen_signed_float
-*Generate a random signed float. Min and max can be given.*\
+*Generate a random signed float. Min and max can be given.*
 ### gen_ascii_lower_char
-*Generate a random ascii lower char.*\
+*Generate a random ascii lower char.*
 ### gen_ascii_upper_char
-*Generate a random ascii upper char.*\
+*Generate a random ascii upper char.*
 ### gen_ascii_char
-*Generate a random ascii char.*\
+*Generate a random ascii char.*
 ### gen_ascii_lower_string
-*Generate a random ascii lower string.*\
+*Generate a random ascii lower string.*
 ### gen_ascii_upper_string
-*Generate a random ascii upper string.*\
+*Generate a random ascii upper string.*
 ### gen_ascii_string
-*Generate a random ascii string.*\
+*Generate a random ascii string.*
 ### gen_callable
-*Generate a random callable. The number of arguments can be specified with nbr_args, as well as the generator function for the returned value with gen_return. If raised_exception = True, then the callable will raise an exception.*\
+*Generate a random callable. The number of arguments can be specified with nbr_args, as well as the generator function for the returned value with gen_return. If raised_exception = True, then the callable will raise an exception.*
 ### gen_generator
-*Generate a random iterator. The iterator length can be provided, as well as the elements generator function with the gen_element argument.*\
+*Generate a random iterator. The iterator length can be provided, as well as the elements generator function with the gen_element argument.*
 ### gen_list
-*Generate a random list. The list length can be provided, as well as the elements generator function with the the gen_element argument.*\
+*Generate a random list. The list length can be provided, as well as the elements generator function with the the gen_element argument.*
 ### gen_dict
-*Generate a random dict. The dict length can be provided, as well as the keys generator function with the the gen_keys argument, and the element generator function with the gen_element argument.*\
+*Generate a random dict. The dict length can be provided, as well as the keys generator function with the the gen_keys argument, and the element generator function with the gen_element argument.*
 ### gen_random_value
-*Generate a random value from any single value generator decorated with the "is_gen_value" flag attribute.*\
+*Generate a random value from any single value generator decorated with the "is_gen_value" flag attribute.*
 ### gen_random_iterable
-*Generate a random iterable from any iterable generator decorated with the "is_gen_iterable" flag attribute.*\
+*Generate a random iterable from any iterable generator decorated with the "is_gen_iterable" flag attribute.*
 ### gen_random
-*Generate a random data from any generator decorated with the "is_gen" flag attribute.*\
+*Generate a random data from any generator decorated with the "is_gen" flag attribute.*
 
 
 ## Testing functions
@@ -153,7 +153,7 @@ PyQuickTest test kit is divided into few categories:
         **my_function,** |  *function my_function with an*\
         **prefix="==>"** |  *indentation of 4 spaced and a*\
         **indent=4**     |      *printed prefix "==>"*\
-    **)**                | *before the test result output.*\
+    **)**                | *before the test result output.*
 
 ### test_group                                                 
 *Run a group of test functions. If you want to run a subgroup, pass every group and subgroup as a parameter. If no context is provided, it will be obtained by importing the caller file. If a filename is provided, the context will be retrieved from this file.*\
@@ -170,7 +170,7 @@ PyQuickTest test kit is divided into few categories:
         **"SG",**               |   *the group "G", the*\
         **"SSG",**              | *subgroup "SG" and the*\
         **filename="tests.py"** | *subgroup "SGG" from the*\
-    **)**                       |     *"test.py" file.*\
+    **)**                       |     *"test.py" file.*
 
 ### test_all                                                     
 *Run every test functions. If no context is provided, it will be obtained by importing the caller file. If a filename is provided, the context will be retrieved from this file.*\
@@ -179,7 +179,7 @@ PyQuickTest test kit is divided into few categories:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
     **test_all(**               | *This will run every*\
         **filename="tests.py"** | *test function from*\
-    **)**                       | *the "test.py" file.*\
+    **)**                       | *the "test.py" file.*
 
 
 # Installation
