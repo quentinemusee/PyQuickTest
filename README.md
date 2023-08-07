@@ -49,19 +49,19 @@ PyQuickTest test kit is divided into few categories:
 ### @qpt_parametrize
 *Use the given parameters to the test function.*\
 **example:**\
-    **@is_test()**            |   *will fail*\
-    **def my_function(arg):** |   *because no*\
-        **ok()**              | *"arg" provided*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **@is_test()**            | *test*\
-    **@qpt_parametrize(8)**   | *with*\
-    **def my_function(arg):** | *arg*\
-        **ok()**              | *= 8*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **@is_test()**                         | *test with*\
-    **@qpt_parametrize(8, 'a', [45.19])**  | *arg1 = 8*\
-    **def my_function(arg1, arg2, arg3):** | *arg2 = 'a'*\
-        **ok()**                           | *arg3 = [45.19]*
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *will fail*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *because no*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *"arg" provided*\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *test*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_parametrize(8)** &nbsp;&nbsp; *with*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):** *arg*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *= 8*\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *test with*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_parametrize(8, 'a', [45.19])** &nbsp;&nbsp; *arg1 = 8*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg1, arg2, arg3):** *arg2 = 'a'*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *arg3 = [45.19]*
 
 
 ## Assertion functions                                            
