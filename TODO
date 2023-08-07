@@ -1,0 +1,6 @@
+[
+    "Test all functions.",
+    "Add more parameters to the CLI.",
+    "Add a timeout decorator for the test functions.",
+    "Add a test_directory testing function."
+]

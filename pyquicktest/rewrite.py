@@ -15,8 +15,19 @@
      ____________________________________________________________________________________
     | VERSION |    DATE    |                           CONTENT                           |
     |====================================================================================|
-    | 0.0.1   | 2023/07/25 | ..........................................................  |
+    |         |            | Initial release, including the following features:          |
+    |         |            |     -Decorators for test functions.                         |
+    |         |            |     -Assertions functions for test functions.               |
+    |         |            |     -Testing routine functions for:                         |
+    |  0.0.1  | 2023/08/06 |         *A single function.                                 |
+    |         |            |         *A given group/subgroup of functions.               |
+    |         |            |         *All functions from a given file.                   |
+    |         |            |     -Generators functions for random inputs.                |
+    |         |            |     -a CLI tool for running tests.                          |
     |------------------------------------------------------------------------------------|
+    |         |            | Adding a smart assertion error printing to avoid useless    |
+    |  0.1.0  | 2023/08/06 | lines, and a more detailed test session start message that  |
+    |         |            | includes informations about the OS & the software versions. |
      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                                                          ~*~ CHANGELOG ~*~ """
 
@@ -25,28 +36,19 @@
 # Import section #
 #=--------------=#
 
-from   __future__ import annotations
+from   __future__      import annotations
 import typing
+import io
 import re
 from pyquicktest.utils import *
 
-# =------------------------------= #
+# =-----------------------------------= #
 
 
-#=-----------------=#
-# Autorship section #
-#=-----------------=#
+#=------------------=#
+# Authorship section #
+#=------------------=#
 
-__author__       = "Quentin Raimbaud"
-__maintainer__   = "Quentin Raimbaud"
-__contact__      = "quentin.raimbaud.contact@gmail.com"
-__organization__ = None
-__credits__      = []
-__copyright__    = None
-__license__      = None
-__date__         = "2023/07/25"
-__version__      = "0.0.1"
-__status__       = "Development"
 __filename__     = "rewrite.py"
 
 # =--------------------------------------------------------= #
@@ -67,6 +69,30 @@ RBRCKT = '}'
 #=-------------------------------------=#
 # Parsing & Rewriting functions section #
 #=-------------------------------------=#
+
+def smart_assertion_print(
+    *values : typing.Any,
+    sep     : typing.Optional[str]       = " ",
+    end     : typing.Optional[str]       = "\n",
+    file    : typing.Optional[typing.IO] = None,
+    flush   : typing.Literal[False]      = False):
+    """Smart print assertions statements without obvious lines."""
+
+    # Printing to a local StringIO object
+    output = io.StringIO()
+    print(*values, sep=sep, end=end, file=output, flush=flush)
+    content = output.getvalue()
+    output.close()
+
+    # Making this string smart.
+    for line in content.split('\n'):
+        # removing A = A in the where statement.
+        if '=' in line:
+            (A, B) = map1(lambda x: x.replace(' ', "").strip(), line.split('='))
+            if A == B:
+                content = content.replace('\n' + line, "")
+
+    print(content, file=file)
 
 def parse_function_call(string: str) -> typing.Optional[str]:
     """Parse a single lowest function call from a given string expression."""
@@ -122,10 +148,14 @@ def rewrite_test(test: typing.Callable, caller_file : typing.Optional[str] = Non
         temp = check[0].replace('\n', "")
         tab = get_str_tab(temp)
         (core, rewritten) = rewrite_check(temp)
+        multi_replaced_values = [multiple_replace(core[key], *[(k, v) for k, v in core.items()], (DQUOTE, BS + DQUOTE)) for key in core]
+        maxlength = max([len(e) for e in multi_replaced_values])
         rewritten = rewritten[:-1].rstrip()[:-1] + f"""\\nwhere\\n{(BS + 'n').join(
-            f"{tab}{multiple_replace(core[key], *[(k, v) for k, v in core.items()], (DQUOTE, BS + DQUOTE))} = {LBRCKT}{key}{RBRCKT}" for key in core
+            f"{tab}{replaced_values_and_key[0]}{(maxlength-len(replaced_values_and_key[0]))*' '} = " 
+          + f"{LBRCKT}{replaced_values_and_key[1]}{RBRCKT}" for replaced_values_and_key in zip(multi_replaced_values, core)
         )}")"""
         src = src.replace(temp, rewritten)
+    res = re.findall(r"(\s*print\s?\(.*\))", src)
     exec(src)
     return locals()[new_func_name]
 

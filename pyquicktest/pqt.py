@@ -14,8 +14,19 @@
      ____________________________________________________________________________________
     | VERSION |    DATE    |                           CONTENT                           |
     |====================================================================================|
-    | 0.0.1   | 2023/07/25 | ..........................................................  |
+    |         |            | Initial release, including the following features:          |
+    |         |            |     -Decorators for test functions.                         |
+    |         |            |     -Assertions functions for test functions.               |
+    |         |            |     -Testing routine functions for:                         |
+    |  0.0.1  | 2023/08/06 |         *A single function.                                 |
+    |         |            |         *A given group/subgroup of functions.               |
+    |         |            |         *All functions from a given file.                   |
+    |         |            |     -Generators functions for random inputs.                |
+    |         |            |     -a CLI tool for running tests.                          |
     |------------------------------------------------------------------------------------|
+    |         |            | Adding a smart assertion error printing to avoid useless    |
+    |  0.1.0  | 2023/08/06 | lines, and a more detailed test session start message that  |
+    |         |            | includes informations about the OS & the software versions. |
      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                                                          ~*~ CHANGELOG ~*~ """
 
@@ -24,33 +35,25 @@
 # Import section #
 #=--------------=#
 
-from   __future__ import annotations
+from   __future__           import annotations
 import typing
+import platform
 import os
 import time
+from pyquicktest.authorship import __version__, __status__
 from pyquicktest.utils      import *
 from pyquicktest.decorators import *
 from pyquicktest.gen        import *
 from pyquicktest.assertions import *
 from pyquicktest.rewrite    import *
 
-# =------------------------------= #
+# =----------------------------------------= #
 
 
-#=-----------------=#
-# Autorship section #
-#=-----------------=#
+#=------------------=#
+# Authorship section #
+#=------------------=#
 
-__author__       = "Quentin Raimbaud"
-__maintainer__   = "Quentin Raimbaud"
-__contact__      = "quentin.raimbaud.contact@gmail.com"
-__organization__ = None
-__credits__      = []
-__copyright__    = None
-__license__      = None
-__date__         = "2023/07/25"
-__version__      = "0.0.1"
-__status__       = "Development"
 __filename__     = "pqt.py"
 
 # =--------------------------------------------------------= #
@@ -135,8 +138,9 @@ def test_one(
         # If the test failed.
         except (TestFailedException, TestInvalidException, TestTimeoutException) as e:
             # Pretty printing.
-            print(f"{indent}\033[91m[{i+1}{(len(str(test_func.test_execution_number))-len(str(i+1)))*' '}/{test_func.test_execution_number}] failed!")
-            print(f"""{NL.join(e for e in test_func.__source__.split(NL) if not e.lstrip().startswith('@'))}\n{e}\033[00m""")
+            print(f"{indent}\033[91m[{i+1}{(len(str(test_func.test_execution_number))-len(str(i+1)))*' '}/{test_func.test_execution_number}] failed!\033[00m")
+            print(f"""\033[93m{NL.join(e for e in test_func.__source__.split(NL) if not e.lstrip().startswith('@'))}\033[00m""")
+            smart_assertion_print(f"\033[91m{e}\033[00m")
             print(os.get_terminal_size()[0]*"~")
             
             # Updating the result.
@@ -240,7 +244,8 @@ def test_group(
         *group   : str,
         ctx      : typing.Optional[typing.Dict[str, typing.Any]] = None,
         filename : typing.Optional[str] = None,
-        from_all : bool = False
+        from_all : bool = False,
+        run_dir  : typing.Optional[str] = None,
     ) -> typing.List[str]:
     """Run a group of tests."""
 
@@ -284,7 +289,10 @@ def test_group(
         # Pretty printing.
         stdout_width = (os.get_terminal_size()[0] -22)/2
         if border_length := 22 + len(str(length)):
-            print(f"\033[01m\033[47m\033[90m{int(stdout_width+0.5)*'='} test sessions starts {int(stdout_width)*'='}\033[00m\n")
+            print(f"\033[01m\033[47m\033[90m{int(stdout_width+0.5)*'='} test sessions starts {int(stdout_width)*'='}\033[00m")
+            print(f"platform {platform.platform()}, Python v{platform.python_version()}, PyQuickTest v{__version__} [{__status__}]")
+            print(f"Working file: {caller_file}" if not run_dir else f"Working dir: {run_dir}")
+            print(f"""Collected {length} test{'s' if length > 1 else ""} to run\n""")
             print(f"\033[96m{border_length*'*'}\n* Running all {length} tests *\n{border_length*'*'}\033[00m\n")
 
         # Creating a global timer variable

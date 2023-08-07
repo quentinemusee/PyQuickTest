@@ -12,8 +12,19 @@
      ____________________________________________________________________________________
     | VERSION |    DATE    |                           CONTENT                           |
     |====================================================================================|
-    | 0.0.1   | 2023/07/25 | ..........................................................  |
+    |         |            | Initial release, including the following features:          |
+    |         |            |     -Decorators for test functions.                         |
+    |         |            |     -Assertions functions for test functions.               |
+    |         |            |     -Testing routine functions for:                         |
+    |  0.0.1  | 2023/08/06 |         *A single function.                                 |
+    |         |            |         *A given group/subgroup of functions.               |
+    |         |            |         *All functions from a given file.                   |
+    |         |            |     -Generators functions for random inputs.                |
+    |         |            |     -a CLI tool for running tests.                          |
     |------------------------------------------------------------------------------------|
+    |         |            | Adding a smart assertion error printing to avoid useless    |
+    |  0.1.0  | 2023/08/06 | lines, and a more detailed test session start message that  |
+    |         |            | includes informations about the OS & the software versions. |
      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                                                          ~*~ CHANGELOG ~*~ """
 
@@ -22,29 +33,31 @@
 # Import section #
 #=--------------=#
 
+import colorama
+from pyquicktest.authorship import *
 from pyquicktest.assertions import *
 from pyquicktest.decorators import *
 from pyquicktest.gen        import *
-from pyquicktest.pqt        import test_one, test_group, test_all
+from pyquicktest.pqt        import *
+from pyquicktest.rewrite    import *
 from pyquicktest.utils      import *
 
-# =--------------------= #
+# =------------------------------= #
 
 
-#=-----------------=#
-# Autorship section #
-#=-----------------=#
+#=------------------=#
+# Authorship section #
+#=------------------=#
 
-__author__       = "Quentin Raimbaud"
-__maintainer__   = "Quentin Raimbaud"
-__contact__      = "quentin.raimbaud.contact@gmail.com"
-__organization__ = None
-__credits__      = []
-__copyright__    = None
-__license__      = None
-__date__         = "2023/07/25"
-__version__      = "0.0.1"
-__status__       = "Development"
 __filename__     = "__init__.py"
 
-# =--------------------------------------------------------= #
+# =--------------------------= #
+
+
+#=-----------------------------=#
+# Colors initialization section #
+#=-----------------------------=#
+
+colorama.init()
+
+# =---------------------------= #

@@ -10,8 +10,19 @@
      ____________________________________________________________________________________
     | VERSION |    DATE    |                           CONTENT                           |
     |====================================================================================|
-    | 0.0.1   | 2023/07/25 | ..........................................................  |
+    |         |            | Initial release, including the following features:          |
+    |         |            |     -Decorators for test functions.                         |
+    |         |            |     -Assertions functions for test functions.               |
+    |         |            |     -Testing routine functions for:                         |
+    |  0.0.1  | 2023/08/06 |         *A single function.                                 |
+    |         |            |         *A given group/subgroup of functions.               |
+    |         |            |         *All functions from a given file.                   |
+    |         |            |     -Generators functions for random inputs.                |
+    |         |            |     -a CLI tool for running tests.                          |
     |------------------------------------------------------------------------------------|
+    |         |            | Adding a smart assertion error printing to avoid useless    |
+    |  0.1.0  | 2023/08/06 | lines, and a more detailed test session start message that  |
+    |         |            | includes informations about the OS & the software versions. |
      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                                                          ~*~ CHANGELOG ~*~ """
 
@@ -22,35 +33,18 @@
 
 from   __future__ import annotations
 import typing
-import os
-import sys
-from pyquicktest import *
+from pyquicktest  import *
 
-# =------------------------------) #
+# =------------------------------= #
 
 
-#=-----------------=#
-# Autorship section #
-#=-----------------=#
+#=------------------=#
+# Authorship section #
+#=------------------=#
 
-__author__       = "Quentin Raimbaud"
-__maintainer__   = "Quentin Raimbaud"
-__contact__      = "quentin.raimbaud.contact@gmail.com"
-__organization__ = None
-__credits__      = []
-__copyright__    = None
-__license__      = None
-__date__         = "2023/07/25"
-__version__      = "0.0.1"
-__status__       = "Development"
 __filename__     = "test_pqt.py"
 
 # =--------------------------------------------------------= #
-
-
-# # Adding the pqt library to the sys path.
-# sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-# from pqt import *
 
 
 #=------------------------------------=#
@@ -74,8 +68,8 @@ NBR_TESTS_EXEC = 100
 ####################################################
 
 @is_test()
-@qpt_group("General purpose decorators", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose decorators", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_add_flag_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the add_flag decorator with a random attribute."""
     attribute  = gen_ascii_string()
@@ -85,8 +79,8 @@ def test_add_flag_1() -> typing.Union[TestPassedException, TestFailedException]:
     ensure(func.__getattribute__(attribute) == None,  f"The decorated function just added attribute <{attribute}> retrieved value <{func.__getattribute__(attribute)}> doesn't fit the default flag value <None>.")
 
 @is_test()
-@qpt_group("General purpose decorators", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose decorators", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_add_attribute_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the add_attribute decorator with random and default values."""
     attribute  = gen_ascii_string()
@@ -102,8 +96,8 @@ def test_add_attribute_1() -> typing.Union[TestPassedException, TestFailedExcept
     ensure(func.__getattribute__(attribute) == None,  f"The decorated function just added attribute <{attribute}> retrieved value <{func.__getattribute__(attribute)}> doesn't fit the default value <None>.")
 
 @is_test()
-@qpt_group("General purpose decorators", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose decorators", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_add_flags_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the add_flags decorator with random attributes."""
     attributes = gen_generator(length=gen_int(max=10), gen_element=gen_ascii_string)
@@ -115,8 +109,8 @@ def test_add_flags_1() -> typing.Union[TestPassedException, TestFailedException]
     ok()
 
 @is_test()
-@qpt_group("General purpose decorators", "Attributes", "eheh")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose decorators", "Attributes", "eheh")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_add_attributes_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the add_attributes decorator with several attributes and values."""
     attributes_and_values = gen_list(length=gen_int(max=10), gen_element=lambda: (gen_ascii_string(), gen_random()))
@@ -137,8 +131,8 @@ def test_add_attributes_1() -> typing.Union[TestPassedException, TestFailedExcep
 ##################################################
 
 @is_test()
-@qpt_group("General purpose functions", "Map")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Map")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_map1_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the map1 function with a random iterables and a trivial function."""
     list_ = gen_list()
@@ -146,17 +140,17 @@ def test_map1_1() -> typing.Union[TestPassedException, TestFailedException]:
     ensure(not any(map1(func, list_)), f"The mapped function <to_False> didn't change every value of the given list to False.")
 
 @is_test()
-@qpt_group("General purpose functions", "Map")
-@qpt_parametrize(list(range(10)))
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Map")
+@pqt_parametrize(list(range(10)))
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_map1_2(iterable: typing.Iterable) -> typing.Union[TestPassedException, TestFailedException]:
     """Test the map1 function with a random iterables and a trivial function."""
     func = lambda x: x+1
-    ensure(map1(func, iterable) == list(range(1, 11)), f"The mapped function <+1> didn't change every value of the given list as expected.")
+    ensure(map1(func, iterable) == list(range(1, 12)), f"The mapped function <+1> didn't change every value of the given list as expected.")
 
 @is_test()
-@qpt_group("General purpose functions", "Map")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Map")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_map2_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the map2 function with two random iterables and a trivial function."""
     list_1 = gen_list()
@@ -165,9 +159,7 @@ def test_map2_1() -> typing.Union[TestPassedException, TestFailedException]:
     ensure(map2(func, list_1, list_2) == list(zip(list_2, list_1)), f"The mapped function <to_zip> didn't fit the applied zip function to the lists.")
 
 @is_test()
-@qpt_group("General purpose functions", "Map")
-#@qpt_parametrize(list(range(10)), list(range(9, -1, -1)))
-#def test_map2_2(iterable1: typing.Iterable, iterable2: typing.Iterable) -> typing.Union[TestPassedException, TestFailedException]:
+@pqt_group("General purpose functions", "Map")
 def test_map2_2() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the map1 function with a random iterables and a trivial function."""
     iterable1, iterable2 = list(range(10)), list(range(9, -1, -1))
@@ -175,8 +167,8 @@ def test_map2_2() -> typing.Union[TestPassedException, TestFailedException]:
     ensure(map2(func, iterable1, iterable2) == 10*[9], f"The mapped function <+1> didn't change every value of the given list as expected.")
 
 @is_test()
-@qpt_group("General purpose functions", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_hasattributes_setattributesflags_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the hasattributes and setattributesflags functions with random functions and attributes. The expected hasattributes result is True."""
     attributes = gen_generator(length=gen_int(max = 10), gen_element=gen_ascii_string)
@@ -185,8 +177,8 @@ def test_hasattributes_setattributesflags_1() -> typing.Union[TestPassedExceptio
     ensure(hasattributes(func, *attributes), f"The just added attributes aren't all detected by the <hasattributes> function.")
 
 @is_test()
-@qpt_group("General purpose functions", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_hasattributes_setattributes_2() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the hasattributes and setattributes functions with random functions and attributes. The expected hasattributes result is False."""
     attributes = gen_list(length=gen_int(min=1, max = 10), gen_element=gen_ascii_string)
@@ -196,16 +188,16 @@ def test_hasattributes_setattributes_2() -> typing.Union[TestPassedException, Te
     ensure(not hasattributes(func, *attributes), f"The just added attributes aren't all detected by the <hasattributes> function.")
 
 @is_test()
-@qpt_group("General purpose functions", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_get_all_functions_1() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the get_all_functions function with a random context full of functions with no attributes."""
     ctx = gen_dict(length=gen_int(max=10), gen_keys=gen_ascii_string, gen_values=gen_callable)
     ensure(get_all_functions(ctx=ctx) == list(ctx.values()), f"The iterable of functions returned doesn't match the given context.")
 
 @is_test()
-@qpt_group("General purpose functions", "Attributes")
-@qpt_execnbr(NBR_TESTS_EXEC)
+@pqt_group("General purpose functions", "Attributes")
+@pqt_execnbr(NBR_TESTS_EXEC)
 def test_get_all_functions_2() -> typing.Union[TestPassedException, TestFailedException]:
     """Test the get_all_functions function with a random context full of functions and random attributes."""
     ctx = gen_dict(length=gen_int(max=10), gen_keys=gen_ascii_string, gen_values=gen_callable)
@@ -215,10 +207,6 @@ def test_get_all_functions_2() -> typing.Union[TestPassedException, TestFailedEx
 # =---------------------------------------------------------------------------------------------------------------------------------------------------------------= #
 
 
+# Running the tests if the file is directly executed.
 if __name__ == '__main__':
     test_all()
-
-#TODO: -tester toutes les autres fonctions. LOL
-#      -rendre plus beau / complet l'output terminal, CF: pytest (pas copier mais faire aussi bien!)
-#      -debug le le qpt_timeout --> le fait de modifier la fonction modifie le source code et ça casse tout !
-#      -debug l'affichage du fichier et de la ligne qui a causé l'erreur

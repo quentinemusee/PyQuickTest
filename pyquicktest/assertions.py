@@ -14,8 +14,19 @@
      ____________________________________________________________________________________
     | VERSION |    DATE    |                           CONTENT                           |
     |====================================================================================|
-    | 0.0.1   | 2023/07/25 | ..........................................................  |
+    |         |            | Initial release, including the following features:          |
+    |         |            |     -Decorators for test functions.                         |
+    |         |            |     -Assertions functions for test functions.               |
+    |         |            |     -Testing routine functions for:                         |
+    |  0.0.1  | 2023/08/06 |         *A single function.                                 |
+    |         |            |         *A given group/subgroup of functions.               |
+    |         |            |         *All functions from a given file.                   |
+    |         |            |     -Generators functions for random inputs.                |
+    |         |            |     -a CLI tool for running tests.                          |
     |------------------------------------------------------------------------------------|
+    |         |            | Adding a smart assertion error printing to avoid useless    |
+    |  0.1.0  | 2023/08/06 | lines, and a more detailed test session start message that  |
+    |         |            | includes informations about the OS & the software versions. |
      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                                                          ~*~ CHANGELOG ~*~ """
 
@@ -31,23 +42,13 @@ import inspect
 # =------------------------------= #
 
 
-#=-----------------=#
-# Autorship section #
-#=-----------------=#
+#=------------------=#
+# Authorship section #
+#=------------------=#
 
-__author__       = "Quentin Raimbaud"
-__maintainer__   = "Quentin Raimbaud"
-__contact__      = "quentin.raimbaud.contact@gmail.com"
-__organization__ = None
-__credits__      = []
-__copyright__    = None
-__license__      = None
-__date__         = "2023/07/25"
-__version__      = "0.0.1"
-__status__       = "Development"
 __filename__     = "assertions.py"
 
-# =--------------------------------------------------------= #
+# =----------------------------= #
 
 
 #=------------------------------------=#
@@ -86,18 +87,16 @@ def ok() -> TestPassedException:
 
 def ko(error_msg: str = "") -> TestFailedException:
     """Unvalidate a test."""
-    stack = next(
-        (e for e in inspect.stack() if e.filename.split('/')[-1].split('\\')[-1] != __filename__.split('/')[-1].split('\\')[-1])
-    )
-    raise TestFailedException(stack.filename.split('/')[-1].split('\\')[-1] + f":{stack.lineno}: {error_msg}")
+    stack = inspect.stack()[1]
+    raise TestFailedException(f"{stack.function[10:]}: {error_msg}")
 
 def check(boolean: bool, error_msg: str = "", ensure: bool = False) -> typing.Optional[TestFailedException]:
     """Unvalidate a test if the given <boolean> value is False, but otherwise does nothing."""
     if not boolean:
         stack = next(
-            (e for e in inspect.stack() if e.filename.split('/')[-1].split('\\')[-1] != __filename__.split('/')[-1].split('\\')[-1])
+            (e for e in inspect.stack()[1:] if e.function not in ["ensure"])
         )
-        raise TestFailedException(stack.filename.split('/')[-1].split('\\')[-1] + f":{stack.lineno}: {error_msg}")
+        raise TestFailedException(f"{stack.function[10:]}: {error_msg}")
     if ensure:
         ok()
 

@@ -14,8 +14,19 @@
      ____________________________________________________________________________________
     | VERSION |    DATE    |                           CONTENT                           |
     |====================================================================================|
-    | 0.0.1   | 2023/07/25 | ..........................................................  |
+    |         |            | Initial release, including the following features:          |
+    |         |            |     -Decorators for test functions.                         |
+    |         |            |     -Assertions functions for test functions.               |
+    |         |            |     -Testing routine functions for:                         |
+    |  0.0.1  | 2023/08/06 |         *A single function.                                 |
+    |         |            |         *A given group/subgroup of functions.               |
+    |         |            |         *All functions from a given file.                   |
+    |         |            |     -Generators functions for random inputs.                |
+    |         |            |     -a CLI tool for running tests.                          |
     |------------------------------------------------------------------------------------|
+    |         |            | Adding a smart assertion error printing to avoid useless    |
+    |  0.1.0  | 2023/08/06 | lines, and a more detailed test session start message that  |
+    |         |            | includes informations about the OS & the software versions. |
      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
                                                                          ~*~ CHANGELOG ~*~ """
 
@@ -24,27 +35,18 @@
 # Import section #
 #=--------------=#
 
-from   __future__ import annotations
+from   __future__           import annotations
 import argparse
-from pyquicktest.pqt import test_all
+from pyquicktest.authorship import __version__, __status__
+from pyquicktest.pqt        import test_all
 
-# =------------------------------= #
+# =----------------------------------------------------= #
 
 
-#=-----------------=#
-# Autorship section #
-#=-----------------=#
+#=------------------=#
+# Authorship section #
+#=------------------=#
 
-__author__       = "Quentin Raimbaud"
-__maintainer__   = "Quentin Raimbaud"
-__contact__      = "quentin.raimbaud.contact@gmail.com"
-__organization__ = None
-__credits__      = []
-__copyright__    = None
-__license__      = None
-__date__         = "2023/07/25"
-__version__      = "0.0.1"
-__status__       = "Development"
 __filename__     = "cli.py"
 
 # =--------------------------------------------------------= #
@@ -63,6 +65,7 @@ PyQuickTest is an experimental python testing framework designed to deliver an e
 To get started, run the script with the --exemples argument.""")
     
     # Adding expecting arguments.
+    parser.add_argument('-v', "--version",  action="store_true",  help="Show the version of the PyQuickTest software.")
     parser.add_argument('-e', "--examples",  action="store_true", help="Show examples and instructions to get started.")
     parser.add_argument('-rt', "--run-test", type=str,            help="Run the given test file.")
 
@@ -73,8 +76,12 @@ To get started, run the script with the --exemples argument.""")
     if all(not e for e in args.values()):
         parser.print_help()
         exit()
+    
+    # If the -v or --version argument is provided, print the version of the software.
+    if args["version"]:
+        print(f"PyQuickTest v{__version__} status: {__status__}.")
 
-    # If the -e or --examples is provided, print examples and instructions to get started.
+    # If the -e or --examples argument is provided, print examples and instructions to get started and exit the program.
     if args["examples"]:
         print("""\
 *========================================================================================*
@@ -276,6 +283,7 @@ To get started, run the script with the --exemples argument.""")
 | -------------------------------------------------------------------------------------- |
 |                  :PyQuickTest test kit is divided into few categories:                 |
 *========================================================================================*""")
+        exit()
 
     # If the -rt or --run-test argument is provided, run every test functions from the given file.
     if args["run_test"]:
