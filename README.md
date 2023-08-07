@@ -15,24 +15,24 @@ PyQuickTest test kit is divided into few categories:
 &nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| *is*\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** | *a*\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| *test*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| *test*
 
 ### @qpt_group
 *Categorize the decorated function as belonging to the given groups and subgroups. Groups and subgroups should be given as arguments.*\
 **example:**\
-    **@is_test()**         |     *has*\
-    **def my_function():** |     *no*\
-        **ok()**           | *test group*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|     *has*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** |     *no*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| *test group*\
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **@is_test()**          |  *belong*\
-    **@qpt_group("Group")** | *to the*\
-    **def my_function():**  |  *group*\
-        **ok()**            | *"Group"*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  *belong*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group")** | *to the*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** &nbsp;|  *group*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| *"Group"*\
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **@is_test()**                      |  *belong to the*\
-    **@qpt_group("Group", "Subgroup")** |   *group "Group"*\
-    **def my_function():**              | *and the subgroup*\
-        **ok()**                        |    *"Subgroup"*
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  *belong to the*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group", "Subgroup")** |   *group "Group"*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| *and the subgroup*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|    *"Subgroup"*
 
 ### @qpt_execnbr
 *Order the decorated test function to be run a given number of times.*\
