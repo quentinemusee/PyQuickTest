@@ -46,7 +46,7 @@ PyQuickTest test kit is divided into few categories:
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*my_function is run 100 times.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_execnbr(100)**\
@@ -66,7 +66,7 @@ PyQuickTest test kit is divided into few categories:
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_parametrize(8)**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*my_function will will be run with arg1 = 8, arg2 = 'a' and arg3 = [45.19].*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_parametrize(8, 'a', [45.19])**\
