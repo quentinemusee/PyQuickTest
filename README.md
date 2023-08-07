@@ -26,13 +26,13 @@ PyQuickTest test kit is divided into few categories:
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
-    ~~~~~~~~~~~~~~~~~~~~~~\
+    ~~~~~~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*my_function belong to the test group "Group".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group")**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*my_function belong to the test group "Group" and subgroup "Subgroup".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group", "Subgroup")**\
