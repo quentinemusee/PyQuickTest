@@ -30,21 +30,21 @@ PyQuickTest test kit is divided into few categories:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *"Group"*\
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *belong to the*\
-&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group", "Subgroup")** &nbsp;&nbsp; *group "Group"*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group", "Subgroup")** &nbsp; *group "Group"*\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *and the subgroup*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *"Subgroup"*
 
 ### @qpt_execnbr
 *Order the decorated test function to be run a given number of times.*\
 **example:**\
-    **@is_test()**         |     *runs*\
-    **def my_function():** |     *once*\
-        **ok()**           | *my_function*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **@is_test()**         |    *runs*\
-    **@qpt_execnbr(100)**  |    *100*\
-    **def my_function():** |    *times*\
-        **ok()**           | *my_function*
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *runs*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** *once*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*my_function*\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *runs*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@qpt_execnbr(100)** &nbsp;&nbsp; *100*\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** *times*\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *my_function*
 
 ### @qpt_parametrize
 *Use the given parameters to the test function.*\
