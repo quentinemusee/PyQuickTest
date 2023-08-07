@@ -10,12 +10,12 @@ PyQuickTest test kit is divided into few categories:
 ### @is_test
 *Transform the decorated function into a test function for the framework.*\
 **example:**\
-    **def my_function():** | *is not*\
-        **ok()**           | *a test*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **@is_test()**         |  *is*\
-    **def my_function():** |  *a*\
-        **ok()**           | *test*
+&nbsp&nbsp&nbsp&nbsp**def my_function():** | *is not*\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp**ok()**           | *a test*\
+&nbsp&nbsp&nbsp&nbsp~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp&nbsp&nbsp&nbsp**@is_test()**         |  *is*\
+&nbsp&nbsp&nbsp&nbsp**def my_function():** |  *a*\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp**ok()**           | *test*
 
 ### @qpt_group
 *Categorize the decorated function as belonging to the given groups and subgroups. Groups and subgroups should be given as arguments.*\
