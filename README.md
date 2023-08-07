@@ -12,7 +12,7 @@ PyQuickTest test kit is divided into few categories:
 **example:**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** *is not*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *a test*\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *is*\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**  *a*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *test*
@@ -23,7 +23,7 @@ PyQuickTest test kit is divided into few categories:
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *has*\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *no*\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *test group*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+    ~~~~~~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *belong*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group")** *to the*\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *group*\
