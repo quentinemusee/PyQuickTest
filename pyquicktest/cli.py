@@ -230,7 +230,7 @@ To get started, run the script with the --exemples argument.""")
 |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |
 |                   test_one(        |     This will run the test                        |
 |                       my_function, |  function my_function with an                     |
-|                       prefix="==>" |  indentation of 4 spaced and a                    |
+|                       prefix="==>" |  indentation of 4 spaces and a                    |
 |                       indent=4     |      printed prefix "==>"                         |
 |                   )                | before the test result output.                    |
 |     ********************************************************************************** |

@@ -105,10 +105,10 @@ PyQuickTest test kit is divided into few categories:
 *Validate or unvalidate the current test depending on the given boolean. An optional error message can be provided.*\
 **example:**\
 &nbsp;&nbsp;&nbsp;&nbsp;*The test "my_function" will pass if the generated number 'a' if greater than 10, and fail otherwise.*\
-    **@is_test()**\
-    **def my_function(arg):**\
-        **a = gen_int()**\
-        **ensure(a > 10, "a isn't greater than 10")**
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**a = gen_int()**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ensure(a > 10, "a isn't greater than 10")**
 
 
 ## Generator functions                                               
@@ -156,18 +156,21 @@ PyQuickTest test kit is divided into few categories:
 ### test_one
 *Run a single test function. A few optional arguments can be provided, but if this function is directly used alone, only passing the test function as a parameter is certainly enough.*\
 **example:**\
-    **test_one(my_function)** | *This will run the test function my_function.*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **test_one(**        |     *This will run the test*\
-        **my_function,** |  *function my_function with a*\
-        **prefix="==>"** |      *printed prefix "==>"*\
-    **)**                | *before the test result output.*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **test_one(**        |     *This will run the test*\
-        **my_function,** |  *function my_function with an*\
-        **prefix="==>"** |  *indentation of 4 spaced and a*\
-        **indent=4**     |      *printed prefix "==>"*\
-    **)**                | *before the test result output.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test "my_function".*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_one(my_function)**\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test "my_function" with a printed prefix "==>" before the test result output.*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_one(**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**my_function,**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**prefix="==>"**\
+&nbsp;&nbsp;&nbsp;&nbsp;**)**\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test "my_function" with an indentation of 4 spaces and a printed prefix "==>" before the test result output.*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_one(**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**my_function,**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**prefix="==>"**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**indent=4**\
+&nbsp;&nbsp;&nbsp;&nbsp;**)**
 
 ### test_group                                                 
 *Run a group of test functions. If you want to run a subgroup, pass every group and subgroup as a parameter. If no context is provided, it will be obtained by importing the caller file. If a filename is provided, the context will be retrieved from this file.*\
