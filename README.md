@@ -158,13 +158,13 @@ PyQuickTest test kit is divided into few categories:
 **example:**\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test "my_function".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_one(my_function)**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test "my_function" with a printed prefix "==>" before the test result output.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_one(**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**my_function,**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**prefix="==>"**\
 &nbsp;&nbsp;&nbsp;&nbsp;**)**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test "my_function" with an indentation of 4 spaces and a printed prefix "==>" before the test result output.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_one(**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**my_function,**\
