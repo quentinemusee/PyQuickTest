@@ -101,7 +101,7 @@ To get started, run the script with the --exemples argument.""")
 |                      subgroups. Groups and subgroups should be given as arguments.     |
 |         example :                                                                      |
 |                   @is_test()         |     has                                         |
-|                   def my_function(): |     no                                          |
+|                   def my_function():a|     no                                          |
 |                       ok()           | test group                                      |
 |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                      |
 |                   @is_test()          |  belong                                        |
@@ -157,19 +157,20 @@ To get started, run the script with the --exemples argument.""")
 |     check :   Unvalidate the current test if the given boolean is False. An optional   |
 |              error message can be provided. If the given boolean is True, do nothing.  |
 |         example :                                                                      |
-|                   @is_test()                                  |      if the            |
-|                   def my_function(arg):                       | generated number       |
-|                       a = gen_int()                           | a is lower than        |
-|                       check(a > 0, "a isn't greater than 10") |   10, the tests        |
-|                       ok()                                    |     will fail.         |
+|                   @is_test()                                   |      if the           |
+|                   def my_function(arg):                        | generated number      |
+|                       a = gen_int()                            | a is lower than       |
+|                       check(a > 10, "a isn't greater than 10") |   10, the tests       |
+|                       ok()                                     |     will fail.        |
 |     ********************************************************************************** |
 |     ensure :  Validate or unvalidate the current test depending on the given boolean.  |
 |                             An optional error message can be provided.                 |
 |         example :                                                                      |
-|                   @is_test()                                   |  if the generated     |
-|                   def my_function(arg):                        | number a is lower     |
-|                       a = gen_int()                            | than 10, the tests    |
-|                       ensure(a > 0, "a isn't greater than 10") |      will fail        |
+|                   @is_test()                                    |   if the generated   |
+|                   def my_function(arg):                         | number a is greater  |
+|                       a = gen_int()                             | than 10, the tests   |
+|                       ensure(a > 10, "a isn't greater than 10") |      will pass       |
+|                                                                 | (otherwise it fails) |
 | -------------------------------------------------------------------------------------- |
 | Generator functions                                                                    |
 |     gen_none               : Generate None.                                            |

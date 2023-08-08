@@ -10,11 +10,11 @@ PyQuickTest test kit is divided into few categories:
 ### @is_test
 *Transform the decorated function into a test function for the framework.*\
 **example:**\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function is not a test.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" is not a test.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
 &nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function is a test.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" is a test.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**
@@ -22,18 +22,18 @@ PyQuickTest test kit is divided into few categories:
 ### @qpt_group
 *Categorize the decorated function as belonging to the given groups and subgroups. Groups and subgroups should be given as arguments.*\
 **example:**\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function has no test group.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" has no test group.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
     ~~~~~~~~~~~~~~\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function belong to the test group "Group".*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" belong to the test group "Group".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group")**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
     ~~~~~~~~~~~~~~\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function belong to the test group "Group" and subgroup "Subgroup".*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" belong to the test group "Group" and subgroup "Subgroup".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_group("Group", "Subgroup")**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
@@ -42,12 +42,12 @@ PyQuickTest test kit is divided into few categories:
 ### @qpt_execnbr
 *Order the decorated test function to be run a given number of times.*\
 **example:**\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function is run once.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" is run once.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
 &nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function is run 100 times.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" is run 100 times.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_execnbr(100)**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function():**\
@@ -56,18 +56,18 @@ PyQuickTest test kit is divided into few categories:
 ### @qpt_parametrize
 *Use the given parameters to the test function.*\
 **example:**\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function will fail once tested because no arg is provided.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" will fail once tested because no arg is provided.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
 &nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function will will be run with arg = 8.*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" will will be run with arg = 8.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_parametrize(8)**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**\
 &nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~\
-&nbsp;&nbsp;&nbsp;&nbsp;*my_function will will be run with arg1 = 8, arg2 = 'a' and arg3 = [45.19].*\
+&nbsp;&nbsp;&nbsp;&nbsp;*"my_function" will will be run with arg1 = 8, arg2 = 'a' and arg3 = [45.19].*\
 &nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
 &nbsp;&nbsp;&nbsp;&nbsp;**@qpt_parametrize(8, 'a', [45.19])**\
 &nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg1, arg2, arg3):**\
@@ -78,33 +78,37 @@ PyQuickTest test kit is divided into few categories:
 ### ok
 *Validate the current test.*\
 **example:**\
-    **@is_test()**            |  *This*\
-    **def my_function(arg):** |  *test*\
-        **ok()**              | *passes*
+&nbsp;&nbsp;&nbsp;&nbsp;*The test "my_function" will pass.*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**
 
 ### ko
 *Unvalidate the current test with an optional error message.*\
 **example:**\
-    **@is_test()**                  | *This*\
-    **def my_function(arg):**       | *test*\
-        **ko("This test failed!")** | *fail*
+&nbsp;&nbsp;&nbsp;&nbsp;*The test "my_function" will fail.*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ko("This test failed!")**
 
 ### check
 *Unvalidate the current test if the given boolean is False. An optional error message can be provided. If the given boolean is True, do nothing.*\
 **example:**\
-    **@is_test()**                                  |      *if the*\
-    **def my_function(arg):**                       | *generated number*\
-        **a = gen_int()**                           | *a is lower than*\
-        **check(a > 0, "a isn't greater than 10")** |   *10, the tests*\
-        **ok()**                                    |     *will fail.*
+&nbsp;&nbsp;&nbsp;&nbsp;*The test "my_function" will fail if the generated number 'a' is lower than 10.*\
+&nbsp;&nbsp;&nbsp;&nbsp;**@is_test()**\
+&nbsp;&nbsp;&nbsp;&nbsp;**def my_function(arg):**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**a = gen_int()**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**check(a > 10, "a isn't greater than 10")**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ok()**
 
 ### ensure
 *Validate or unvalidate the current test depending on the given boolean. An optional error message can be provided.*\
 **example:**\
-    **@is_test()**                                   |  *if the generated*\
-    **def my_function(arg):**                        | *number a is lower*\
-        **a = gen_int()**                            | *than 10, the tests*\
-        **ensure(a > 0, "a isn't greater than 10")** |      *will fail*
+&nbsp;&nbsp;&nbsp;&nbsp;*The test "my_function" will pass if the generated number 'a' if greater than 10, and fail otherwise.*\
+    **@is_test()**\
+    **def my_function(arg):**\
+        **a = gen_int()**\
+        **ensure(a > 10, "a isn't greater than 10")**
 
 
 ## Generator functions                                               
