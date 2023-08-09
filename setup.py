@@ -77,7 +77,7 @@ def read_file(filename: str) -> str:
 
 setup(
     name                          = "PyQuickTest",
-    version                       = read_file(os.path.join(os.getcwd(), "VERSION")),
+    version                       = read_file(os.path.join(os.getcwd(), "VERSION.md")),
     author                        = "Quentin Raimbaud",
     author_email                  = "quentin.raimbaud.contact@gmail.com",
     description                   = "PyQuickTest is an experimental python testing framework designed to \
