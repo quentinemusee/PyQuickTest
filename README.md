@@ -177,13 +177,13 @@ PyQuickTest test kit is divided into few categories:
 **example:**\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from group "G".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_group("G")**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from group "G" and subgroup "Subgroup".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_group(**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"G",**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"Subgroup"**\
 &nbsp;&nbsp;&nbsp;&nbsp;**)**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from group "G", subgroup "SG" and sub-subgroup "SSG".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_group(**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"G",**\
@@ -197,7 +197,7 @@ PyQuickTest test kit is divided into few categories:
 **example:**\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from caller file context.*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_all()**\
-&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~\
 &nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from file "test.py".*\
 &nbsp;&nbsp;&nbsp;&nbsp;**test_all(**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**filename="tests.py"**\
