@@ -261,7 +261,7 @@ To get started, run the script with the --exemples argument.""")
 |                       "G",                |   test function from                       |
 |                       "SG",               |   the group "G", the                       |
 |                       "SSG",              | subgroup "SG" and the                      |
-|                       filename="tests.py" | subgroup "SGG" from the                    |
+|                       filename="tests.py" | subgroup "SSG" from the                    |
 |                   )                       |      "test.py" file.                       |
 |     ********************************************************************************** |
 |     test_all(                                                                          |
@@ -269,6 +269,7 @@ To get started, run the script with the --exemples argument.""")
 |                    case the context will be obtained using get_callable_ctx_from_file. |
 |                                          Please leave it as None.                      |
 |         filename : The filename from wich retrieving every test functions. Can be      |
+|                       None, in this case the filename will be the caller one's.        |
 |     )                                                                                  |
 |      -> Run every test functions.                                                      |
 |         If no context <ctx> is provided, it will be obtained by importing the caller   |

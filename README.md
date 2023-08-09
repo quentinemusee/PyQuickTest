@@ -175,28 +175,33 @@ PyQuickTest test kit is divided into few categories:
 ### test_group                                                 
 *Run a group of test functions. If you want to run a subgroup, pass every group and subgroup as a parameter. If no context is provided, it will be obtained by importing the caller file. If a filename is provided, the context will be retrieved from this file.*\
 **example:**\
-    **test_group("G")** | *This will run very test function from group "G".*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **test_group(**    |   *This will run every*\
-        **"G",**       |    *test function from*\
-        **"Subgroup"** |  *the group "G" and the*\
-    **)**              |   *subgroup "Subgroup".*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **test_group(**             |  *This will run every*\
-        **"G",**                |   *test function from*\
-        **"SG",**               |   *the group "G", the*\
-        **"SSG",**              | *subgroup "SG" and the*\
-        **filename="tests.py"** | *subgroup "SGG" from the*\
-    **)**                       |     *"test.py" file.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from group "G".*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_group("G")**\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from group "G" and subgroup "Subgroup".*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_group(**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"G",**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"Subgroup"**\
+&nbsp;&nbsp;&nbsp;&nbsp;**)**\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from group "G", subgroup "SG" and sub-subgroup "SSG".*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_group(**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"G",**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"SG",**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**"SSG",**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**filename="tests.py"**\
+&nbsp;&nbsp;&nbsp;&nbsp;**)**
 
 ### test_all                                                     
 *Run every test functions. If no context is provided, it will be obtained by importing the caller file. If a filename is provided, the context will be retrieved from this file.*\
 **example:**\
-    **test_all()** | *This will every test function from caller file context.*\
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
-    **test_all(**               | *This will run every*\
-        **filename="tests.py"** | *test function from*\
-    **)**                       | *the "test.py" file.*
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from caller file context.*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_all()**\
+&nbsp;&nbsp;&nbsp;&nbsp;~~~~~~~~~~~~~~~\
+&nbsp;&nbsp;&nbsp;&nbsp;*Run the test functions from file "test.py".*\
+&nbsp;&nbsp;&nbsp;&nbsp;**test_all(**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**filename="tests.py"**\
+&nbsp;&nbsp;&nbsp;&nbsp;**)**
 
 
 # Installation
