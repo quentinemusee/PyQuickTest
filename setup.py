@@ -76,29 +76,30 @@ def read_file(filename: str) -> str:
 #=----------------------=#
 
 setup(
-    name             = "PyQuickTest",
-    version          = read_file(os.path.join(os.getcwd(), "VERSION")),
-    author           = "Quentin Raimbaud",
-    author_email     = "quentin.raimbaud.contact@gmail.com",
-    description      = "PyQuickTest is an experimental python testing framework designed to \
+    name                          = "PyQuickTest",
+    version                       = read_file(os.path.join(os.getcwd(), "VERSION")),
+    author                        = "Quentin Raimbaud",
+    author_email                  = "quentin.raimbaud.contact@gmail.com",
+    description                   = "PyQuickTest is an experimental python testing framework designed to \
                            deliver an easy-and-quick-to-start python testing mechanism.",
-    license          = "PSFL",
-    keywords         = ["Code testing",  "Experimental",  "Testing framework"],
-    url              = "https://github.com/quentinemusee/PyQuickTest",
-    download_url     = "https://pypi.org/project/pyquicktest/",
-    packages         = ["pyquicktest"],
-    long_description = read_file(os.path.join(os.getcwd(), "README.md")),
-    classifiers      = [
+    long_description              = read_file(os.path.join(os.getcwd(), "README.md")),
+    long_description_content_type = "text/markdown",
+    license                       = "PSFL",
+    keywords                      = ["Code testing",  "Experimental",  "Testing framework"],
+    url                           = "https://github.com/quentinemusee/PyQuickTest",
+    download_url                  = "https://pypi.org/project/pyquicktest/",
+    packages                      = ["pyquicktest"],
+    classifiers                   = [
         "Development Status :: 3 - Alpha",
         "Topic              :: Utilities",
         "License            :: OSI Approved :: PSF License",
     ],
-    entry_points     = {
+    entry_points                  = {
         "console_scripts": [
             "pqt = pyquicktest.cli:cli",
         ]
     },
-    install_requires = [
+    install_requires              = [
         "colorama"
     ],
 )
