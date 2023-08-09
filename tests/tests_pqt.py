@@ -146,7 +146,7 @@ def test_map1_1() -> typing.Union[TestPassedException, TestFailedException]:
 def test_map1_2(iterable: typing.Iterable) -> typing.Union[TestPassedException, TestFailedException]:
     """Test the map1 function with a random iterables and a trivial function."""
     func = lambda x: x+1
-    ensure(map1(func, iterable) == list(range(1, 12)), f"The mapped function <+1> didn't change every value of the given list as expected.")
+    ensure(map1(func, iterable) == list(range(1, 11)), f"The mapped function <+1> didn't change every value of the given list as expected.")
 
 @is_test()
 @pqt_group("General purpose functions", "Map")
