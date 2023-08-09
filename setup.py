@@ -91,8 +91,8 @@ setup(
     packages                      = ["pyquicktest"],
     classifiers                   = [
         "Development Status :: 3 - Alpha",
-        "Topic              :: Utilities",
-        "License            :: OSI Approved :: PSF License",
+        "Topic :: Utilities",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
     ],
     entry_points                  = {
         "console_scripts": [
